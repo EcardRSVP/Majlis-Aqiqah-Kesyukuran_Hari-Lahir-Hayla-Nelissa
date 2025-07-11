@@ -1495,6 +1495,30 @@ function copyRek() {
     }
   });
 </script>
+
+<script>
+  // ❄️ Cipta 30 salji automatik
+  for (let i = 0; i < 30; i++) {
+    let snow = document.createElement("div");
+    snow.classList.add("snow");
+
+    // Posisi rawak di lebar skrin
+    snow.style.left = Math.random() * 100 + "vw";
+
+    // Durasi rawak
+    snow.style.animationDuration = 8 + Math.random() * 5 + "s";
+
+    // Saiz rawak
+    let size = 5 + Math.random() * 5;
+    snow.style.width = size + "px";
+    snow.style.height = size + "px";
+
+    // Delay animasi supaya tak semua jatuh serentak
+    snow.style.animationDelay = Math.random() * 5 + "s";
+
+    document.body.appendChild(snow);
+  }
+</script>
           
    <!-- ✅ SCRIPT UNTUK PAPAR STATUS TEMPAHAN -->
 <script src="n98hm1a2n.js"></script>

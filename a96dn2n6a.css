@@ -637,3 +637,23 @@ hr {
   font-size: 0.75rem;
   margin-top: 2px;
 }
+
+/* ❄️ SALJI JATUH */
+.snow {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowfall linear infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+

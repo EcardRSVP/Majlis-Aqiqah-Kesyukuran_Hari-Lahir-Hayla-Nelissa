@@ -13,3 +13,24 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTPi4cVVJVAYtYrDQRfhBMX0q
     });
   });
 
+// ❄️ Cipta 30 salji automatik (letak dalam script.js)
+for (let i = 0; i < 30; i++) {
+  let snow = document.createElement("div");
+  snow.classList.add("snow");
+
+  // Posisi rawak di lebar skrin
+  snow.style.left = Math.random() * 100 + "vw";
+
+  // Durasi rawak
+  snow.style.animationDuration = 8 + Math.random() * 5 + "s";
+
+  // Saiz rawak
+  let size = 5 + Math.random() * 5;
+  snow.style.width = size + "px";
+  snow.style.height = size + "px";
+
+  // Delay animasi supaya tak semua jatuh serentak
+  snow.style.animationDelay = Math.random() * 5 + "s";
+
+  document.body.appendChild(snow);
+}

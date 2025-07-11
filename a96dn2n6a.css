@@ -150,37 +150,6 @@ h1, h2, p {
     font-size: 0.95rem;
   }
 
-  .countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: nowrap;
-  margin-top: 10px;
-}
-
-.countdown-box {
-  width: 60px;
-  height: 65px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.countdown-number {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.countdown-label {
-  font-size: 0.75rem;
-  margin-top: 2px;
-}
 
 
   .footer {
@@ -369,23 +338,26 @@ form button[type="submit"] {
 
 /* ✅ Font Custom Styles */
 .font-a {
-  font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
+  font-family: 'Libertinus Math', serif;
+  font-size: 1.6rem;
+  color: black;
 }
 
 .font-b {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  color: black;
 }
 
 .font-c {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Ephesis', cursive;
   font-size: 2.5rem;
+  color: black;
 }
 
 .font-d {
-  font-family: 'Bonheur Royale', cursive;
-  font-size: 1.6rem;
+  font-family: 'Estonia', cursive;
+  font-size: 1.8rem;
 }
 
 .font-e {
@@ -630,4 +602,38 @@ hr {
     right: auto;
     transform: translateX(-50%);
   }
+}
+
+
+
+  .countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.countdown-box {
+  width: 60px;
+  height: 65px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.countdown-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  margin-top: 2px;
 }

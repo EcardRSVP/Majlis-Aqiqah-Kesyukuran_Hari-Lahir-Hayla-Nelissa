@@ -32,5 +32,5 @@ for (let i = 0; i < 30; i++) {
   // Delay animasi supaya tak semua jatuh serentak
   snow.style.animationDelay = Math.random() * 5 + "s";
 
-  document.body.appendChild(snow);
+document.getElementById("snow-wrapper").appendChild(snow);
 }

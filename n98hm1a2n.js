@@ -21,8 +21,7 @@ function mulakanSalji() {
    {
       color: "#ffffff",
       glow: "0 0 10px rgba(255, 255, 255, 0.8)" // Putih glowing
-    },
-    {
+    }
   ];
 
   // 🎯 Salji permulaan yang banyak

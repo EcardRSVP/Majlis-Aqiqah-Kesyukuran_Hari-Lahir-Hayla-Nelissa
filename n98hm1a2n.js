@@ -18,9 +18,18 @@ function mulakanSalji() {
   if (!wrapper) return;
 
   const warnaSalji = [
-    { color: "#ffffff", glow: "0 0 8px white" },     // putih shining
-    { color: "#ffd700", glow: "0 0 10px gold" },     // gold shining
-    { color: "#c0c0c0", glow: "0 0 10px silver" }    // silver shining
+   {
+      color: "#ffffff",
+      glow: "0 0 10px rgba(255, 255, 255, 0.8)" // Putih glowing
+    },
+    {
+      color: "#e6c200", // Gold matte
+      glow: "0 0 10px rgba(255, 223, 0, 0.8)" // Gold shine
+    },
+    {
+      color: "#b0b0b0", // Silver matte
+      glow: "0 0 10px rgba(200, 200, 200, 0.8)" // Silver shine
+    }
   ];
 
   // 🎯 Salji permulaan yang banyak

@@ -252,8 +252,12 @@
 <!-- ✅ Seksyen RSVP -->
 <section id="Seksyen RSVP" class="hidden-section">
   <h2>💌 RSVP</h2>
- <form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLSedlvRozEgmCPlheAte9YGIS-VxcumFs7FBSSeqURJLB9chiA/formResponse" method="POST" target="hidden_iframe">
-    
+<form id="rsvp-form" 
+      action="https://docs.google.com/forms/d/e/1FAIpQLSedlvRozEgmCPlheAte9YGIS-VxcumFs7FBSSeqURJLB9chiA/formResponse" 
+      method="POST" 
+      target="hidden_iframe" 
+      onsubmit="submitted=true;">
+
     <!-- Nama -->
     <label for="nama">Nama</label>
     <input type="text" id="nama" name="entry.1043756814" placeholder="Nama Anda" required style="width: 100%; padding: 10px; margin-bottom: 15px;">

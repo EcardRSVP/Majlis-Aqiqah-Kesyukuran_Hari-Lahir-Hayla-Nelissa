@@ -1528,6 +1528,44 @@ function copyRek() {
    <!-- ✅ SCRIPT UNTUK PAPAR STATUS TEMPAHAN -->
 <script src="n98hm1a2n.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("rsvp-form");
+  const msg = document.getElementById("submit-message");
+
+  if (!form || !msg) {
+    console.error("❌ Form atau mesej tidak dijumpai.");
+    return;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
+    const bilangan = document.getElementById("bilangan").value;
+
+    if (!nama || !kehadiran || !bilangan) {
+      alert("Sila lengkapkan semua maklumat.");
+      return;
+    }
+
+    form.submit();
+    console.log("📤 Borang dihantar ke Google Form");
+
+    setTimeout(() => {
+      console.log("⏱️ Timeout selesai, papar mesej");
+
+      msg.style.display = "block";
+      form.reset();
+
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 5000);
+    }, 2000);
+  });
+});
+</script>
 
 
 </body>

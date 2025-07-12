@@ -61,27 +61,41 @@ function mulakanSalji() {
   }
 }
 
-document.getElementById('rsvp-form').addEventListener('submit', function (e) {
-  e.preventDefault(); // Halang default submit
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById('rsvp-form');
+  const msg = document.getElementById('submit-message');
 
-  const nama = document.getElementById('nama').value.trim();
-  const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
-  const bilangan = document.getElementById('bilangan').value;
-
-  if (!nama || !kehadiran || !bilangan) {
-    alert("Sila lengkapkan semua maklumat.");
+  if (!form) {
+    console.error("❌ Form RSVP tidak dijumpai.");
     return;
   }
 
-  // Submit ke Google Form secara senyap
-  this.submit();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  // Tunjuk mesej di skrin
-  const msg = document.getElementById('submit-message');
-  if (msg) {
-    msg.style.display = 'block';
-  }
+    const nama = document.getElementById('nama').value.trim();
+    const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
+    const bilangan = document.getElementById('bilangan').value;
 
-  // Reset borang (optional)
-  this.reset();
+    if (!nama || !kehadiran || !bilangan) {
+      alert("Sila lengkapkan semua maklumat.");
+      return;
+    }
+
+    // Submit ke Google Form
+    this.submit();
+
+    // Tunjukkan mesej berjaya
+    if (msg) {
+      msg.style.display = 'block';
+
+      // Sembunyikan mesej selepas 5 saat (optional)
+      setTimeout(() => {
+        msg.style.display = 'none';
+      }, 5000);
+    }
+
+    // Reset borang
+    this.reset();
+  });
 });

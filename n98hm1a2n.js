@@ -13,24 +13,23 @@ fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTPi4cVVJVAYtYrDQRfhBMX0q
     });
   });
 
-// ❄️ Cipta 30 salji automatik (letak dalam script.js)
-for (let i = 0; i < 30; i++) {
-  let snow = document.createElement("div");
-  snow.classList.add("snow");
+// ❄️ Fungsi cipta salji — dipanggil selepas butang ditekan
+function mulakanSalji() {
+  for (let i = 0; i < 30; i++) {
+    let snow = document.createElement("div");
+    snow.classList.add("snow");
 
-  // Posisi rawak di lebar skrin
-  snow.style.left = Math.random() * 100 + "vw";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = 8 + Math.random() * 5 + "s";
 
-  // Durasi rawak
-  snow.style.animationDuration = 8 + Math.random() * 5 + "s";
+    // ✅ Saiz guna rem supaya responsif macam fon
+    let size = 0.4 + Math.random() * 0.3;
+    snow.style.width = size + "rem";
+    snow.style.height = size + "rem";
 
-  // Saiz rawak
-  let size = 5 + Math.random() * 5;
-  snow.style.width = size + "px";
-  snow.style.height = size + "px";
+    snow.style.animationDelay = Math.random() * 5 + "s";
 
-  // Delay animasi supaya tak semua jatuh serentak
-  snow.style.animationDelay = Math.random() * 5 + "s";
-
-document.getElementById("snow-wrapper").appendChild(snow);
+    const wrapper = document.getElementById("snow-wrapper");
+    if (wrapper) wrapper.appendChild(snow);
+  }
 }

@@ -639,23 +639,21 @@ hr {
 }
 
 .snow {
-  position: absolute;
-  top: -1rem;
-  background: white;
+  position: fixed;
+  top: -10px;
   border-radius: 50%;
+  z-index: 9999;
   opacity: 0.8;
-  animation-name: snow-fall;
-  animation-timing-function: linear;
   pointer-events: none;
-  z-index: 2;
+  animation-name: jatuh;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
 }
 
-/* Gunakan animasi jatuh */
-@keyframes snow-fall {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
+@keyframes jatuh {
+  to {
     transform: translateY(100vh);
+    opacity: 0.2;
   }
 }
+

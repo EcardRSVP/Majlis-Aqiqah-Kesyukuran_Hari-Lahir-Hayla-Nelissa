@@ -642,7 +642,7 @@ hr {
   position: fixed;
   top: -10px;
   border-radius: 50%;
-  opacity: 0.5; /* ✅ ini buat salji sedikit transparent */
+  opacity: 0.8; /* ✅ ini buat salji sedikit transparent */
   pointer-events: none;
   z-index: 9999;
   animation-name: jatuh;

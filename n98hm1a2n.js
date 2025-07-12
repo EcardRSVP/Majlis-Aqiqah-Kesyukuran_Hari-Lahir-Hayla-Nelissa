@@ -60,15 +60,15 @@ function mulakanSalji() {
     }, 15000);
   }
 }
+
+let submitted = false;
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("rsvp-form");
   const msg = document.getElementById("submit-message");
-  const iframe = document.getElementById("hidden_iframe");
 
-  let submitted = false;
-
-  if (!form || !msg || !iframe) {
-    console.error("❌ Elemen penting (form/msg/iframe) tidak dijumpai.");
+  if (!form || !msg) {
+    console.error("❌ Elemen penting (form/msg) tidak dijumpai.");
     return;
   }
 
@@ -85,23 +85,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     submitted = true;
-    form.submit();
+    form.submit(); // Submit ke Google Form
   });
-
-  iframe.onload = function () {
-    if (submitted) {
-      submitted = false;
-
-      // Tunjuk mesej
-      msg.style.display = "block";
-
-      // Reset borang
-      form.reset();
-
-      // Sembunyi mesej selepas 5 saat
-      setTimeout(() => {
-        msg.style.display = "none";
-      }, 5000);
-    }
-  };
 });
+
+// ✅ Fungsi ini akan dipanggil daripada iframe bila submit selesai
+function rsvpSuccessHandler() {
+  if (submitted) {
+    submitted = false;
+
+    const msg = document.getElementById("submit-message");
+    const form = document.getElementById("rsvp-form");
+
+    if (msg) msg.style.display = "block";
+    if (form) form.reset();
+
+    setTimeout(() => {
+      if (msg) msg.style.display = "none";
+    }, 5000);
+  }
+}

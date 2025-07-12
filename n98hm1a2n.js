@@ -76,9 +76,12 @@ document.getElementById('rsvp-form').addEventListener('submit', function (e) {
   // Submit ke Google Form secara senyap
   this.submit();
 
-  // Beri mesej kepada pengguna
-  alert("Terima kasih! Kehadiran anda telah direkodkan.");
-  
+  // Tunjuk mesej di skrin
+  const msg = document.getElementById('submit-message');
+  if (msg) {
+    msg.style.display = 'block';
+  }
+
   // Reset borang (optional)
   this.reset();
 });

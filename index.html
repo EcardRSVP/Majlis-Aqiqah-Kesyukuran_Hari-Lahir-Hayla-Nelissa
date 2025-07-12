@@ -1528,13 +1528,15 @@ function copyRek() {
    <!-- ✅ SCRIPT UNTUK PAPAR STATUS TEMPAHAN -->
 <script src="n98hm1a2n.js"></script>
 
+<!-- ✅ Bahagian akhir sebelum </body> -->
+<!-- LETAK SCRIPT INI TERUS DALAM index.html -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("rsvp-form");
   const msg = document.getElementById("submit-message");
 
   if (!form || !msg) {
-    console.error("❌ Form atau mesej tidak dijumpai.");
+    console.error("❌ Form atau submit-message tidak dijumpai.");
     return;
   }
 
@@ -1550,12 +1552,11 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Hantar ke Google Form melalui iframe
     form.submit();
-    console.log("📤 Borang dihantar ke Google Form");
 
+    // Papar mesej selepas sedikit delay (Google Form loading)
     setTimeout(() => {
-      console.log("⏱️ Timeout selesai, papar mesej");
-
       msg.style.display = "block";
       form.reset();
 

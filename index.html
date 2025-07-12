@@ -1451,23 +1451,47 @@ function copyRek() {
 
 
       
-  <!-- ✅ SCRIPT UNTUK KAWAL PAPARAN -->
- <script>
+<!-- ✅ SCRIPT UNTUK KAWAL PAPARAN + SALJI -->
+<script>
   const startBtn = document.getElementById('start-btn');
   const music = document.getElementById('bg-music');
+
+  function mulakanSalji() {
+    for (let i = 0; i < 30; i++) {
+      let snow = document.createElement("div");
+      snow.classList.add("snow");
+
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = 8 + Math.random() * 5 + "s";
+
+      let size = 5 + Math.random() * 5;
+      snow.style.width = size + "px";
+      snow.style.height = size + "px";
+
+      snow.style.animationDelay = Math.random() * 5 + "s";
+
+      const wrapper = document.getElementById("snow-wrapper");
+      if (wrapper) wrapper.appendChild(snow);
+    }
+  }
 
   function startInvitation() {
     music.play().catch(e => console.log("Music autoplay blocked"));
     document.getElementById('main-content').style.display = 'block';
+
+    // ✅ JANGAN buang front page, cuma sembunyikan
     const frontPage = document.querySelector('.front-page');
-    if (frontPage) frontPage.remove();
+    if (frontPage) frontPage.style.display = 'none';
+
+    // ✅ Aktifkan salji selepas tekan BUKA
+    mulakanSalji();
   }
 
   if (startBtn) {
     startBtn.addEventListener('click', startInvitation);
   }
 
-  // ✅ INI KOD BARU - Sentiasa aktif pada semua peranti
+  // ✅ Untuk slider galeri
   window.addEventListener("DOMContentLoaded", () => {
     const track = document.querySelector('.gallery-track');
     const slides = document.querySelectorAll('.gallery-slide');
@@ -1495,29 +1519,7 @@ function copyRek() {
   });
 </script>
 
-<script>
-  // ❄️ Cipta 30 salji automatik
-  for (let i = 0; i < 30; i++) {
-    let snow = document.createElement("div");
-    snow.classList.add("snow");
 
-    // Posisi rawak di lebar skrin
-    snow.style.left = Math.random() * 100 + "vw";
-
-    // Durasi rawak
-    snow.style.animationDuration = 8 + Math.random() * 5 + "s";
-
-    // Saiz rawak
-    let size = 5 + Math.random() * 5;
-    snow.style.width = size + "px";
-    snow.style.height = size + "px";
-
-    // Delay animasi supaya tak semua jatuh serentak
-    snow.style.animationDelay = Math.random() * 5 + "s";
-
-    document.body.appendChild(snow);
-  }
-</script>
           
    <!-- ✅ SCRIPT UNTUK PAPAR STATUS TEMPAHAN -->
 <script src="n98hm1a2n.js"></script>

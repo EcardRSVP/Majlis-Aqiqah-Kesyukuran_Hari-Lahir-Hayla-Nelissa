@@ -20,7 +20,7 @@ function mulakanSalji() {
   const warnaSalji = [
    {
       color: "#ffffff",
-      glow: "0 0 10px rgba(255, 255, 255, 0.3)" // Putih glowing
+      glow: "0 0 10px rgba(255, 255, 255, 0.5)" // Putih glowing
     },
     {
   ];

@@ -17,29 +17,45 @@ function mulakanSalji() {
   const wrapper = document.getElementById("snow-wrapper");
   if (!wrapper) return;
 
+  const warnaSalji = [
+    { color: "#ffffff", glow: "0 0 8px white" },     // putih shining
+    { color: "#ffd700", glow: "0 0 10px gold" },     // gold shining
+    { color: "#c0c0c0", glow: "0 0 10px silver" }    // silver shining
+  ];
+
+  // 🎯 Salji permulaan yang banyak
+  for (let i = 0; i < 50; i++) {
+    ciptaSalji();
+  }
+
+  // ⏱️ Kemudian, cipta salji secara berkala
   setInterval(() => {
+    ciptaSalji();
+  }, 300); // 1 salji setiap 0.3s
+
+  // 🔁 Fungsi cipta 1 salji
+  function ciptaSalji() {
     let snow = document.createElement("div");
     snow.classList.add("snow");
 
-    // Saiz & posisi
+    // Warna & glow rawak
+    const pilihan = warnaSalji[Math.floor(Math.random() * warnaSalji.length)];
+    snow.style.backgroundColor = pilihan.color;
+    snow.style.boxShadow = pilihan.glow;
+
+    // Saiz, posisi, animasi
     let size = 0.4 + Math.random() * 0.6;
     snow.style.width = size + "rem";
     snow.style.height = size + "rem";
     snow.style.left = Math.random() * 100 + "vw";
-
-    // Animasi
-    snow.style.animationDuration = 10 + Math.random() * 10 + "s";
+    snow.style.animationDuration = 8 + Math.random() * 6 + "s";
     snow.style.animationDelay = "0s";
-
-    // ✅ Warna rawak
-    const warna = ["#ffffff", "#fdf5e6", "#c0c0c0", "#ffd700"]; // putih, cream, silver, gold
-    snow.style.backgroundColor = warna[Math.floor(Math.random() * warna.length)];
 
     wrapper.appendChild(snow);
 
-    // Auto remove snow selepas animasi
+    // Buang selepas animasi
     setTimeout(() => {
       snow.remove();
-    }, 20000);
-  }, 300); // 1 salji setiap 0.3s
+    }, 15000);
+  }
 }

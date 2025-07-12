@@ -60,42 +60,48 @@ function mulakanSalji() {
     }, 15000);
   }
 }
-
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById('rsvp-form');
-  const msg = document.getElementById('submit-message');
+  const form = document.getElementById("rsvp-form");
+  const msg = document.getElementById("submit-message");
+  const iframe = document.getElementById("hidden_iframe");
 
-  if (!form) {
-    console.error("❌ Form RSVP tidak dijumpai.");
+  let submitted = false;
+
+  if (!form || !msg || !iframe) {
+    console.error("❌ Elemen penting (form/msg/iframe) tidak dijumpai.");
     return;
   }
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const nama = document.getElementById('nama').value.trim();
+    const nama = document.getElementById("nama").value.trim();
     const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
-    const bilangan = document.getElementById('bilangan').value;
+    const bilangan = document.getElementById("bilangan").value;
 
     if (!nama || !kehadiran || !bilangan) {
       alert("Sila lengkapkan semua maklumat.");
       return;
     }
 
-    // Submit ke Google Form
-    this.submit();
+    submitted = true;
+    form.submit();
+  });
 
-    // Tunjukkan mesej berjaya
-    if (msg) {
-      msg.style.display = 'block';
+  iframe.onload = function () {
+    if (submitted) {
+      submitted = false;
 
-      // Sembunyikan mesej selepas 5 saat (optional)
+      // Tunjuk mesej
+      msg.style.display = "block";
+
+      // Reset borang
+      form.reset();
+
+      // Sembunyi mesej selepas 5 saat
       setTimeout(() => {
-        msg.style.display = 'none';
+        msg.style.display = "none";
       }, 5000);
     }
-
-    // Reset borang
-    this.reset();
-  });
+  };
 });

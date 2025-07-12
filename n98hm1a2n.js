@@ -65,43 +65,46 @@ let submitted = false;
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("rsvp-form");
-  const msg = document.getElementById("submit-message");
+  const popup = document.getElementById("submit-popup"); // 🎯 ubah ke popup
+  const nama = document.getElementById("nama");
+  const bilangan = document.getElementById("bilangan");
 
-  if (!form || !msg) {
-    console.error("❌ Elemen penting (form/msg) tidak dijumpai.");
+  if (!form || !popup) {
+    console.error("❌ Elemen penting (form/popup) tidak dijumpai.");
     return;
   }
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const nama = document.getElementById("nama").value.trim();
     const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
-    const bilangan = document.getElementById("bilangan").value;
 
-    if (!nama || !kehadiran || !bilangan) {
+    if (!nama.value.trim() || !kehadiran || !bilangan.value) {
+      e.preventDefault(); // kekalkan supaya tak terus submit jika tak lengkap
       alert("Sila lengkapkan semua maklumat.");
       return;
     }
 
+    // ✅ Biar Google yang submit form seperti biasa
     submitted = true;
-    form.submit(); // Submit ke Google Form
+    // ⚠️ Jangan buat `form.submit()` — Google akan tolak dalam sesetengah kes
+    // Jadi biar form auto submit melalui button
   });
 });
 
-// ✅ Fungsi ini akan dipanggil daripada iframe bila submit selesai
+// ✅ Dipanggil bila iframe reload selepas submit
 function rsvpSuccessHandler() {
   if (submitted) {
     submitted = false;
 
-    const msg = document.getElementById("submit-message");
+    const popup = document.getElementById("submit-popup");
     const form = document.getElementById("rsvp-form");
 
-    if (msg) msg.style.display = "block";
     if (form) form.reset();
-
-    setTimeout(() => {
-      if (msg) msg.style.display = "none";
-    }, 5000);
+    if (popup) {
+      popup.style.display = "block";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 5000);
+    }
   }
 }
+

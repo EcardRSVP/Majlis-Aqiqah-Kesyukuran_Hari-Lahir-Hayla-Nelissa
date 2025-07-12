@@ -60,3 +60,25 @@ function mulakanSalji() {
     }, 15000);
   }
 }
+
+document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Halang default submit
+
+  const nama = document.getElementById('nama').value.trim();
+  const kehadiran = document.querySelector('input[name="entry.727555102"]:checked');
+  const bilangan = document.getElementById('bilangan').value;
+
+  if (!nama || !kehadiran || !bilangan) {
+    alert("Sila lengkapkan semua maklumat.");
+    return;
+  }
+
+  // Submit ke Google Form secara senyap
+  this.submit();
+
+  // Beri mesej kepada pengguna
+  alert("Terima kasih! Kehadiran anda telah direkodkan.");
+  
+  // Reset borang (optional)
+  this.reset();
+});

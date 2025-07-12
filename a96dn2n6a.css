@@ -642,12 +642,13 @@ hr {
   position: fixed;
   top: -10px;
   border-radius: 50%;
-  z-index: 9999;
-  opacity: 0.8;
+  opacity: 0.5; /* ✅ ini buat salji sedikit transparent */
   pointer-events: none;
+  z-index: 9999;
   animation-name: jatuh;
   animation-timing-function: linear;
   animation-iteration-count: 1;
+  transition: opacity 0.5s ease;
 }
 
 @keyframes jatuh {
